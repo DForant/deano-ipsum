@@ -5,7 +5,7 @@ import {ToastContainer, toast, Zoom} from 'react-toastify'
 
 function App() {
   const [activeIpsum, setActiveIpsum] = useState(0)
-  const [sentences, setSentences] = useState(1)
+  const [size, setSize] = useState('small')
   const [paragraphs, setParagraphs] = useState(1)
   const [ipsumResult, setIpsumResult] = useState([])
   const [isIpsumGenerated, setIsIpsumGenerated] = useState(false)
@@ -14,7 +14,24 @@ function App() {
   const buildParagraph = (currentIpsum) => {
     let randomNumber
     let paragraph = ''
+    let sentences = 0
     let i=0
+
+    switch(size){
+      case 'small':
+        sentences = 5
+        break
+      case 'med':
+        sentences = 10
+        break
+      case 'large':
+        sentences = 15
+        break
+      case 'extra-large':
+        sentences = 20
+        break
+    }
+
     while (i < sentences){
     randomNumber= Math.floor(Math.random()*currentIpsum.sentences.length)
       paragraph = paragraph + `${currentIpsum.sentences[randomNumber]} ` 
@@ -90,8 +107,13 @@ function App() {
           <input id='paragraphs' name='paragraps' type='number' min='1' max='10' step='1' value={paragraphs} onChange={(e) => setParagraphs(e.target.value)}/>
         </fieldset>
         <fieldset>
-          <label htmlFor='sentances'>How Many sentances per paragraph:</label>
-          <input id='sentences' name='sentences' type='number' min='1' max='20' step='1' value={sentences} onChange={(e) => setSentences(e.target.value)}/>
+          <label htmlFor='size'>Paragraph Size</label>
+          <select id='size' name='size' onChange={(e) => setSize(e.target.value)}>
+            <option value='small'>Small</option>
+            <option value='med'>Medium</option>
+            <option value='large'>Large</option>
+            <option value='extra-large'>Extra Large</option>
+          </select> 
         </fieldset>
         <fieldset>
           <label htmlFor='includePTags'>Include paragraph(&lt;p&gt;) tags?</label>
