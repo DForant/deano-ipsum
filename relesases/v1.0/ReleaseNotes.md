@@ -1,5 +1,5 @@
-## DeanoIpsum Version xx.xx
-**Release Date: xx/xx/xxxx**
+## DeanoIpsum Version 1.0
+**Release Date: 06/30/2023**
 
 > DeanoIpsum: A collection of Theme based Lorem Ipsum Generators
 
