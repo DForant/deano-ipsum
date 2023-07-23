@@ -4,7 +4,7 @@
 > DeanoIpsum: A collection of Theme based Lorem Ipsum Generators
 
 ### Upgrade Steps
-* [ACTION REQUIRED]
+* Before you begin, create a backup of the 
 * 
 
 ### Breaking Changes

@@ -18,11 +18,12 @@
 * 
 
 ### New Features
-* No New Fetures This release
-* 
+* Minor Styling changes
+* Removed the Sentance number input and replaced with a more generic 'Small', 'medium', 'large', 'extra-large' select box.* 
+* Unified the ipsum sentences to be close to the same size between ipsums
 
 ### Bug Fixes
-* No Bugs Reported
+* No Bugs reported
 * 
 
 ### Performance Improvements

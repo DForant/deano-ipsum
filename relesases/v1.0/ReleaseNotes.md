@@ -15,14 +15,13 @@
 
 ### Breaking Changes
 * N/A
-* 
 
 ### New Features
-* No New Fetures This release
+* Initial Release
 * 
 
 ### Bug Fixes
-* No Bugs Reported
+* Initial Release
 * 
 
 ### Performance Improvements
