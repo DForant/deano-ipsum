@@ -4,7 +4,7 @@
 > DeanoIpsum: A collection of Theme based Lorem Ipsum Generators
 
 ### Upgrade Steps
-* Befroe starting, make sure that you have a backup copy of the working app
+* Before starting, make sure that you have a backup copy of the working app
 * Using an FTP Client, access the directory where the app is installed and delete the following:
   * The Assets folder (and its contents)
   * The index.html file.
