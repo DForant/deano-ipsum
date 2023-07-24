@@ -12,7 +12,6 @@ function App() {
   const [allowParagraphs, setAllowParagraphs] = useState(false)
 
   const buildParagraph = (currentIpsum) => {
-    let randomNumber
     let paragraph = ''
     let sentences = 0
     let i=0
@@ -33,14 +32,42 @@ function App() {
     }
 
     while (i < sentences){
-    randomNumber= Math.floor(Math.random()*currentIpsum.sentences.length)
-      paragraph = paragraph + `${currentIpsum.sentences[randomNumber]} ` 
-      i++
-    }
-    paragraph = paragraph.substring(0, paragraph.length-1)
-    paragraph = allowParagraphs?'<p>'+paragraph+'</p>':paragraph
+        paragraph = paragraph + getSentence(currentIpsum) 
+        i++
+      }
+      paragraph = paragraph.substring(0, paragraph.length-1)
+      paragraph = allowParagraphs?'<p>'+paragraph+'</p>':paragraph
 
-    return paragraph
+      return paragraph
+    }
+
+  const getSentence = (currentIpsum) =>{
+    let i = 0
+    let randomNumber = 0
+    let sentence=''
+
+    if(currentIpsum.name === 'Binary'){
+      while (i < 70){
+        randomNumber = Math.floor(Math.random()*currentIpsum.sentences.length)
+        sentence = sentence + currentIpsum.sentences[randomNumber]
+        i++
+      }
+    }
+    else if (currentIpsum.name === 'Groot'){
+      while (i < 12){
+        randomNumber = Math.floor(Math.random()*currentIpsum.sentences.length)
+        sentence = sentence + ` ${currentIpsum.sentences[randomNumber]}`
+        i++
+      }
+
+    }
+    else{
+      randomNumber = Math.floor(Math.random()*currentIpsum.sentences.length)
+      sentence = currentIpsum.sentences[randomNumber]
+    }
+
+    return sentence+'\n'
+
   }
 
   const buildIpsum = () => {

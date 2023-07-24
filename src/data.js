@@ -908,7 +908,24 @@ const ipsums = [
     "I don't need luck, I have sudo. I'm fluent in JavaScript, HTML, and Klingon.",
     "Talk nerdy to me. I'm root, therefore I rule. I'm not an AI, I just speak their language."
   ] 
-  }
+  },
+  { id: 17,
+    name: 'Binary',
+    sentences: [
+      "1",
+      "0"     
+  ]
+  },
+  { id: 18,
+    name: 'Groot',
+    sentences: [
+      "Groot",
+      "I Groot",
+      "I'm Groot",
+      "I am Groot"     
+  ]
+  },
+
 ]
 
 export default ipsums
