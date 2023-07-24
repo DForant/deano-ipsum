@@ -19,13 +19,13 @@ function App() {
 
     switch(size){
       case 'small':
-        sentences = 5
+        sentences = 3
         break
       case 'med':
-        sentences = 10
+        sentences = 6
         break
       case 'large':
-        sentences = 15
+        sentences = 9
         break
       case 'extra-large':
         sentences = 20
@@ -58,7 +58,7 @@ function App() {
       }
     }
     else if (currentIpsum.name === 'Groot'){
-      while (i < 12){
+      while (i < 8){
         randomNumber = Math.floor(Math.random()*currentIpsum.sentences.length)
         sentence = sentence + ` ${currentIpsum.sentences[randomNumber]}`
         i++
