@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ipsums from './data'
+import './app.css'
 import {HiOutlineClipboardDocument} from 'react-icons/hi2'
 import {ToastContainer, toast, Zoom} from 'react-toastify'
 
