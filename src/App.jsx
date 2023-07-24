@@ -48,9 +48,12 @@ function App() {
     let sentence=''
 
     if(currentIpsum.name === 'Binary'){
-      while (i < 70){
-        randomNumber = Math.floor(Math.random()*currentIpsum.sentences.length)
-        sentence = sentence + currentIpsum.sentences[randomNumber]
+      while (i < 8){
+        for (let i=0; i<8; i++){
+          randomNumber = Math.floor(Math.random()*currentIpsum.sentences.length)
+          sentence= sentence+currentIpsum.sentences[randomNumber]
+        }
+        sentence = sentence + ' '
         i++
       }
     }
