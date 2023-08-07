@@ -1,5 +1,5 @@
-## DeanoIpsum Version xx.xx
-**Release Date: xx/xx/xxxx**
+## DeanoIpsum Version 1.03
+**Release Date: 08/07/2023**
 
 > DeanoIpsum: A collection of Theme based Lorem Ipsum Generators
 
@@ -18,12 +18,13 @@
 * 
 
 ### New Features
-* No New Fetures This release
-* 
+* Added Binary Ipsum
+* Added Groot Ipsum
 
 ### Bug Fixes
-* No Bugs Reported
-* 
+* Adjusted paragraph sizes to better reflect small, med, large, and x-large
+* Made Create Button bigger
+* Minor CSS style changes
 
 ### Performance Improvements
 * N/A
