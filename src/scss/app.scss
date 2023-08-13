@@ -1,0 +1,19 @@
+@import "abstracts/mixins";
+
+@import "base/base";
+@import "base/typography";
+
+@import "components/buttons";
+@import "components/alerts";
+@import "components/form";
+@import "components/lorem-form";
+
+@import "components/title";
+
+@import "layout/section";
+
+/* ============= PROJECT CSS =============== */
+.icon{
+  width: 2rem;
+  font-size: 1.5rem;
+}

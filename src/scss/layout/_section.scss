@@ -1,0 +1,10 @@
+.section-center {
+    width: 80vw;
+    max-width: 40rem;
+    margin: 10rem auto;
+
+    & h4{
+        text-transform: uppercase;
+        text-align: center;
+    }
+  }  
