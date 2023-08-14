@@ -7,13 +7,8 @@
 @import "components/alerts";
 @import "components/form";
 @import "components/lorem-form";
-
 @import "components/title";
 
 @import "layout/section";
 
-/* ============= PROJECT CSS =============== */
-.icon{
-  width: 2rem;
-  font-size: 1.5rem;
-}
+@import "misc/misc"
