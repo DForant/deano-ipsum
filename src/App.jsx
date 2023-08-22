@@ -40,7 +40,7 @@ function App() {
       paragraph = allowParagraphs?'<p>'+paragraph+'</p>':paragraph
 
       return paragraph
-    }
+  }
 
   const getSentence = (currentIpsum) =>{
     let i = 0
@@ -150,7 +150,10 @@ function App() {
           <label htmlFor='includePTags'>Include paragraph(&lt;p&gt;) tags?</label>
           <input type='checkbox' id='allowHtml' name='allowHtml' onChange={() => setAllowParagraphs(!allowParagraphs)}/>
         </fieldset>
-        <button type='submit' className='btn'>Get Ipsum</button>
+        <div>
+          <button type='submit' className='btn'>Get Ipsum</button>
+        </div>
+        
       </form>
       {
         (isIpsumGenerated) &&
