@@ -1,9 +1,8 @@
 export const buildParagraph = (allowParagraphs, size, currentIpsum) => {
-  
   let paragraph = ''
-  let sentences = 0
+  let sentences = 3
   let i=0
-  
+
   switch(size){
     case 'small':
       sentences = 3

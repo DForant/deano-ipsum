@@ -1,17 +1,66 @@
-import {createContext, useState, useContext} from 'react'
+import {createContext, useState, useContext, useReducer} from 'react'
 import ipsums from './data'
+import reducer from './reducer'
 import { buildParagraph } from './ParagraphGen'
 import {toast} from 'react-toastify'
+import {
+    ALLOW_P_TAGS,
+    SET_ACTIVE_IPSUM,
+    SET_NBR_PARAGRAPHS,
+    SET_PARAGRAPH_SIZE,
+    GET_IPSUM_RESULT,
+    IS_IPSUM_GENERATED
+} from './actions'
 
 const AppContext = createContext()
 
+const initialState = {
+    activeIpsum: 0,
+    size: 'small',
+    paragraphs: 1,
+    allowPTags: false,
+    isIpsumGenerated: false,
+    ipsumResult: []
+}
+
 export const AppProvider = ({children}) => {
-    const [activeIpsum, setActiveIpsum] = useState(0)    
-    const [ipsumResult, setIpsumResult] = useState([])
-    const [paragraphs, setParagraphs] = useState(1)
-    const [size, setSize] = useState('small')    
-    const [allowParagraphs, setAllowParagraphs] = useState(false)
-    const [isIpsumGenerated, setIsIpsumGenerated] = useState(false)
+    const [state, dispatch] = useReducer(reducer, initialState)
+
+    const setActiveIpsum = (id) => {
+        dispatch(
+            {type: SET_ACTIVE_IPSUM, payload: {id}}
+        )
+    }
+
+    const setParagraphs = (nbr) => {
+        dispatch(
+            {type: SET_NBR_PARAGRAPHS, payload: {nbr}}
+        )
+    }
+
+    const setAllowParagraphs = () => {
+        dispatch(
+            {type: ALLOW_P_TAGS}
+        )
+    }
+
+    const setSize = (size) => {
+        dispatch(
+            {type: SET_PARAGRAPH_SIZE, payload: {size}}
+        )
+    }
+
+    const setIpsumResult = (result) => {
+        dispatch(
+            {type: GET_IPSUM_RESULT, payload: {result}}
+        )
+    }
+
+    const setIsIpsumGenerated = (isGenerated) => {
+        dispatch(
+            {type: IS_IPSUM_GENERATED, payload: {isGenerated}}
+        )
+    }
 
     const saveToClipboard = async () => {
         let copyText = ''
@@ -35,32 +84,26 @@ export const AppProvider = ({children}) => {
     } 
     
     const buildIpsum = () => {
-        const currentIpsum = ipsums.find(ipsum => ipsum.id == activeIpsum)
+        const currentIpsum = ipsums.find(ipsum => ipsum.id == state.activeIpsum)
         const newIpsum = []
         let i = 0
-        while (i < paragraphs){
-            newIpsum.push(buildParagraph(allowParagraphs, size, currentIpsum))
+        while (i < state.paragraphs){
+            newIpsum.push(buildParagraph(state.allowPTags, state.size, currentIpsum))
             i++
         }
         setIpsumResult(newIpsum)
-        console.log(newIpsum);
     }    
     
     return(
         <AppContext.Provider
             value={{
-                paragraphs,
+                ...state,
                 setParagraphs,
-                size,
-                setSize, 
-                ipsumResult,
+                setSize,
                 setIpsumResult,
-                activeIpsum,
                 setActiveIpsum, 
-                allowParagraphs,
                 setAllowParagraphs, 
                 saveToClipboard,
-                isIpsumGenerated,
                 setIsIpsumGenerated,
                 buildIpsum
             }}

@@ -3,6 +3,8 @@ import './scss/app.scss'
 import {HiOutlineClipboardDocument} from 'react-icons/hi2'
 import {ToastContainer, Zoom} from 'react-toastify'
 import { useGlobalContext } from './context'
+import { useReducer } from 'react'
+import reducer from './reducer'
 
 function App() {
   const {
@@ -13,7 +15,6 @@ function App() {
     setIpsumResult,
     activeIpsum,
     setActiveIpsum, 
-    allowParagraphs,
     setAllowParagraphs, 
     saveToClipboard,
     isIpsumGenerated,
@@ -49,12 +50,18 @@ function App() {
       
         <fieldset>
           <label htmlFor='paragraphs'>How Many Paragraphs:</label>
-          <input id='paragraphs' name='paragraps' type='number' min='1' max='10' step='1' value={paragraphs} onChange={(e) => setParagraphs(e.target.value)}/>
+          <input 
+            id='paragraphs' 
+            name='paragraps' 
+            type='number' 
+            min='1' max='10' step='1' 
+            value={paragraphs} 
+            onChange={(e) => setParagraphs(e.target.value)}/>
         </fieldset>
 
         <fieldset>
           <label htmlFor='includePTags'>Include paragraph(&lt;p&gt;) tags?</label>
-          <input type='checkbox' id='allowHtml' name='allowHtml' onChange={() => setAllowParagraphs(!allowParagraphs)}/>
+          <input type='checkbox' id='allowHtml' name='allowHtml' onChange={() => setAllowParagraphs()}/>
         </fieldset>
 
         <fieldset>
