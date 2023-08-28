@@ -1,5 +1,5 @@
-## DeanoIpsum Version 1.03
-**Release Date: 08/07/2023**
+## DeanoIpsum Version 1.04
+**Release Date: 08/28/2023**
 
 > DeanoIpsum: A collection of Theme based Lorem Ipsum Generators
 
@@ -31,18 +31,17 @@
 * 
 
 ### New Features
-* Added Binary Ipsum
-* Added Groot Ipsum
+* No New Fetures This release
+* 
 
 ### Bug Fixes
-* Adjusted paragraph sizes to better reflect small, med, large, and x-large
-* Made Create Button bigger
-* Minor CSS style changes
+* Minor style issues
+* 
 
 ### Performance Improvements
-* N/A
+* Refactored the Code to utilize the useReducer Hook as well as the global context
 * 
 
 ### Other Changes
-* N/A
+* Because the navigator.clipboard does not work via normal http requests, we added a message informing the use to manually copy the text from the text area.
 * 
