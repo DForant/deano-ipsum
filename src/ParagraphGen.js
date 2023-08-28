@@ -1,48 +1,34 @@
 export const buildParagraph = (allowParagraphs, size, currentIpsum) => {
   let paragraph = ''
-  let sentences = 3
+  let paragraphLength = 200
   let i=0
-
-  /*
-  TODO
-
-  Refactor the size of the paragraph to be a fixed length rather then number
-  of sentences Use the following as a guide
-
-  small - 200 characters
-  Med - 500 characters
-  Large - 800 characters
-  xtra-large - 1100 characters
-
-  Also try to put a for loop to randomly pull another sentence
-  if the length is under the specified amount. try 10 times
-  and after 10, just move on.
-
-  */
 
   switch(size){
     case 'small':
-      sentences = 3
+      paragraphLength = 200
       break
     case 'med':
-      sentences = 6
+      paragraphLength = 500
       break
     case 'large':
-      sentences = 9
+      paragraphLength = 800
       break
     case 'extra-large':
-      sentences = 20
+      paragraphLength = 1100
       break
   }
 
-  while (i < sentences){
-      paragraph = paragraph + getSentence(currentIpsum) 
-      i++
+  for (i = 0; i < paragraphLength; i++){
+    if(i < paragraphLength){
+      paragraph = paragraph + getSentence(currentIpsum)
     }
-    paragraph = paragraph.substring(0, paragraph.length-1)
+      i = paragraph.length
+  }
+    
     paragraph = allowParagraphs?'<p>'+paragraph+'</p>':paragraph
-    paragraph = paragraph + `--- ${paragraph.length} ---`
-
+    if(paragraph.length >= paragraphLength){
+      paragraph+='\n'
+    }
     return paragraph
 }
 
@@ -74,6 +60,6 @@ export const getSentence = (currentIpsum) =>{
     sentence = currentIpsum.sentences[randomNumber]
   }
 
-  return sentence+'\n'
+  return sentence+=' '
 
 }

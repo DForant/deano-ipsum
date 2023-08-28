@@ -62,12 +62,13 @@ export const AppProvider = ({children}) => {
         )
     }
 
-    const saveToClipboard = async () => {
+    const saveToClipboard = () => {
         let copyText = ''
-        ipsumResult.map((text,index) => {
-        copyText+=text
-        copyText+=(index!==ipsumResult.length)?'\n': ''
+
+        state.ipsumResult.map((text,index) => {
+            copyText+=text
         }) 
+
         if(navigator.clipboard){
             try{
                 navigator.clipboard.writeText(copyText)
@@ -77,8 +78,7 @@ export const AppProvider = ({children}) => {
                 console.log(err)
             }
         } else {
-            toast.error('Clipboard access not available')
-            console.log(navigator.clipboard);
+            toast.error('Clipboard access not available. Manually select text in textarea.')
         }
 
     } 
